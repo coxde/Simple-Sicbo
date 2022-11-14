@@ -1,2 +1,3 @@
 # Simple-Sicbo
-A simplized Sic bo game written by JavaScript
+
+A simplified Sic bo game written by JavaScript
