@@ -13,7 +13,7 @@ const dice0El = document.querySelector('.dice--0');
 const dice1El = document.querySelector('.dice--1');
 const dice2El = document.querySelector('.dice--2');
 
-const btnNew = document.querySelector('.btn--new');
+const btnNew = document.querySelectorAll('.btn--new');
 const btnBig = document.querySelector('.btn--big');
 const btnSmall = document.querySelector('.btn--small');
 
@@ -157,7 +157,9 @@ btnSmall.addEventListener('click', function () {
 });
 
 // New button
-btnNew.addEventListener('click', init);
+for (let i = 0; i < btnNew.length; i++) {
+    btnNew[i].addEventListener('click', init);
+}
 
 // Rule button
 btnOpenRule.addEventListener('click', openModal);
