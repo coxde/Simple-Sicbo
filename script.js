@@ -18,18 +18,39 @@ const btnBig = document.querySelector('.btn--big');
 const btnSmall = document.querySelector('.btn--small');
 const btnRule = document.querySelector('.btn--rule');
 
-// Starting conditions
-score0El.textContent = 0;
-score1El.textContent = 0;
-current0El.textContent = '...';
-current1El.textContent = '...';
-let dices = [0, 0, 0];
-let dicesAll = 0;
-let activePlayer = 0;
-let playerActiveEl = document.querySelector('.player--0');
-let scoreActiveEl = score0El;
-let currentActiveEl = current0El;
+let dices,
+    dicesAll,
+    activePlayer,
+    playerActiveEl,
+    scoreActiveEl,
+    currentActiveEl;
 
+// Init function
+const init = function () {
+    score0El.textContent = 0;
+    score1El.textContent = 0;
+    current0El.textContent = '...';
+    current1El.textContent = '...';
+
+    dices = [0, 0, 0];
+    dicesAll = 0;
+    activePlayer = 0;
+    playerActiveEl = document.querySelector('.player--0');
+    scoreActiveEl = score0El;
+    currentActiveEl = current0El;
+
+    player0El.classList.remove('player--winner');
+    player1El.classList.remove('player--winner');
+    player0El.classList.add('player--active');
+    player1El.classList.remove('player--active');
+    for (let i = 0; i < dices.length; i++) {
+        diceAllEl[i].classList.add('hidden');
+    }
+};
+
+init();
+
+// Switching function
 const switchPlayer = function () {
     activePlayer = activePlayer === 0 ? 1 : 0;
     playerActiveEl = document.querySelector(`.player--${activePlayer}`);
@@ -104,3 +125,6 @@ btnSmall.addEventListener('click', function () {
 
     dicesAll = 0;
 });
+
+// New button
+btnNew.addEventListener('click', init);
