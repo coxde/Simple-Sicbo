@@ -24,6 +24,14 @@ current0El.textContent = '...';
 current1El.textContent = '...';
 let dices = [0, 0, 0];
 let dicesAll = 0;
+let activePlayer = 0;
+
+const switchPlayer = function () {
+    document.getElementById(`current--${activePlayer}`).textContent = '...';
+    activePlayer = activePlayer === 0 ? 1 : 0;
+    player0El.classList.toggle('player--active');
+    player1El.classList.toggle('player--active');
+};
 
 // Big button (>= 11)
 btnBig.addEventListener('click', function () {
