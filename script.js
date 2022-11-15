@@ -81,9 +81,9 @@ const dicesGenerator = function () {
         diceAllEl[i].classList.remove('hidden');
     }
 
-    dice0El.src = `/img/dice-${dices[0]}.png`;
-    dice1El.src = `/img/dice-${dices[1]}.png`;
-    dice2El.src = `/img/dice-${dices[2]}.png`;
+    dice0El.src = `img/dice-${dices[0]}.png`;
+    dice1El.src = `img/dice-${dices[1]}.png`;
+    dice2El.src = `img/dice-${dices[2]}.png`;
 };
 
 // Current winner function
