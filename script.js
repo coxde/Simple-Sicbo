@@ -8,6 +8,7 @@ const score1El = document.getElementById('score--1');
 const current0El = document.getElementById('current--0');
 const current1El = document.getElementById('current--1');
 
+const diceAllEl = document.querySelectorAll('.dice');
 const dice0El = document.querySelector('.dice--0');
 const dice1El = document.querySelector('.dice--1');
 const dice2El = document.querySelector('.dice--2');
@@ -45,6 +46,7 @@ btnBig.addEventListener('click', function () {
     for (let i = 0; i < dices.length; i++) {
         dices[i] = Math.trunc(Math.random() * 6) + 1;
         dicesAll += dices[i];
+        diceAllEl[i].classList.remove('hidden');
     }
 
     dice0El.src = `/img/dice-${dices[0]}.png`;
@@ -73,6 +75,7 @@ btnSmall.addEventListener('click', function () {
     for (let i = 0; i < dices.length; i++) {
         dices[i] = Math.trunc(Math.random() * 6) + 1;
         dicesAll += dices[i];
+        diceAllEl[i].classList.remove('hidden');
     }
 
     dice0El.src = `/img/dice-${dices[0]}.png`;
