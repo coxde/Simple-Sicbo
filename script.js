@@ -54,7 +54,7 @@ btnBig.addEventListener('click', function () {
     dice2El.src = `/img/dice-${dices[2]}.png`;
 
     if (dicesAll >= 11) {
-        currentActiveEl.textContent = 'WIN!';
+        currentActiveEl.textContent = `${dicesAll}: WIN!`;
         scoreActiveEl.textContent = Number(scoreActiveEl.textContent) + 1;
 
         if (scoreActiveEl.textContent >= 10) {
@@ -63,7 +63,7 @@ btnBig.addEventListener('click', function () {
             switchPlayer();
         }
     } else {
-        currentActiveEl.textContent = 'LOSE...';
+        currentActiveEl.textContent = `${dicesAll}: LOSE...`;
         switchPlayer();
     }
 
@@ -83,7 +83,7 @@ btnSmall.addEventListener('click', function () {
     dice2El.src = `/img/dice-${dices[2]}.png`;
 
     if (dicesAll <= 10) {
-        currentActiveEl.textContent = 'WIN!';
+        currentActiveEl.textContent = `${dicesAll}: WIN!`;
         scoreActiveEl.textContent = Number(scoreActiveEl.textContent) + 1;
 
         if (scoreActiveEl.textContent >= 10) {
@@ -92,7 +92,7 @@ btnSmall.addEventListener('click', function () {
             switchPlayer();
         }
     } else {
-        currentActiveEl.textContent = 'LOSE...';
+        currentActiveEl.textContent = `${dicesAll}: LOSE...`;
         switchPlayer();
     }
 
