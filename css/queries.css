@@ -64,7 +64,7 @@
     }
 
     .media {
-        display: block;
+        display: flex;
     }
 
     .btn--big {
@@ -134,25 +134,87 @@
 }
 
 /* 425px */
-@media (max-width: 26.56rem) {
+@media (max-width: 26.6rem) {
+    main {
+        max-height: 95%;
+        margin: 1rem;
+    }
+
+    .player {
+        padding: 1.5rem;
+        padding-right: 25%;
+    }
+
+    .player--0 {
+        padding-bottom: 6rem;
+    }
+
+    .player--1 {
+        padding-top: 6rem;
+    }
+
+    .player--0 .name {
+        order: 1;
+        margin-top: 1rem;
+        margin-bottom: 0;
+    }
+
+    .player--0 .score {
+        order: 0;
+        margin-top: auto;
+        margin-bottom: 0;
+    }
+
+    .player--0 .guess {
+        order: -1;
+    }
+
+    .name {
+        font-size: 3.2rem;
+    }
+
+    .score {
+        font-size: 6.4rem;
+    }
+
+    .guess {
+        width: 60%;
+    }
+
     .dice--0 {
-        left: 10%;
-        top: 40%;
+        left: 20%;
+        top: 50%;
     }
 
     .dice--1 {
-        left: 10%;
+        left: 40%;
         top: 50%;
     }
 
     .dice--2 {
-        left: 10%;
-        top: 60%;
+        left: 60%;
+        top: 50%;
     }
 
     .btn {
         padding: 0.6rem 1.2rem;
     }
+
+    /* .btn--new {
+        top: 105%;
+    }
+
+    .btn--big {
+        top: 40%;
+    }
+
+    .btn--small {
+        top: 50%;
+    }
+
+    .btn--rule {
+        top: 60%;
+    } */
 
     .rule-modal {
         width: 75%;

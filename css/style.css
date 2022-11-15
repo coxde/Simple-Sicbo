@@ -131,7 +131,7 @@ main {
 }
 
 .btn--new {
-    top: 4rem;
+    top: 5%;
 }
 
 .media {
@@ -139,15 +139,15 @@ main {
 }
 
 .btn--big {
-    top: 36rem;
+    top: 59%;
 }
 
 .btn--small {
-    top: 43rem;
+    top: 72%;
 }
 
 .btn--rule {
-    top: 50rem;
+    top: 85%;
 }
 
 .btn:active {
