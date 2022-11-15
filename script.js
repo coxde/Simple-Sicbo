@@ -25,12 +25,19 @@ current1El.textContent = '...';
 let dices = [0, 0, 0];
 let dicesAll = 0;
 let activePlayer = 0;
+let playerActiveEl = document.querySelector('.player--0');
+let scoreActiveEl = score0El;
+let currentActiveEl = current0El;
 
 const switchPlayer = function () {
-    document.getElementById(`current--${activePlayer}`).textContent = '...';
     activePlayer = activePlayer === 0 ? 1 : 0;
+    playerActiveEl = document.querySelector(`.player--${activePlayer}`);
+    scoreActiveEl = document.getElementById(`score--${activePlayer}`);
+    currentActiveEl = document.getElementById(`current--${activePlayer}`);
     player0El.classList.toggle('player--active');
     player1El.classList.toggle('player--active');
+
+    return scoreActiveEl, currentActiveEl;
 };
 
 // Big button (>= 11)
@@ -45,13 +52,19 @@ btnBig.addEventListener('click', function () {
     dice2El.src = `/img/dice-${dices[2]}.png`;
 
     if (dicesAll >= 11) {
-        score0El.textContent = Number(score0El.textContent) + 1;
-        current0El.textContent = 'WIN!';
+        currentActiveEl.textContent = 'WIN!';
+        scoreActiveEl.textContent = Number(scoreActiveEl.textContent) + 1;
+
+        if (scoreActiveEl.textContent >= 10) {
+            playerActiveEl.classList.add('player--winner');
+        } else {
+            switchPlayer();
+        }
     } else {
-        current0El.textContent = 'LOSE...';
+        currentActiveEl.textContent = 'LOSE...';
+        switchPlayer();
     }
 
-    console.log(dices, dicesAll);
     dicesAll = 0;
 });
 
@@ -67,12 +80,18 @@ btnSmall.addEventListener('click', function () {
     dice2El.src = `/img/dice-${dices[2]}.png`;
 
     if (dicesAll <= 10) {
-        score0El.textContent = Number(score0El.textContent) + 1;
-        current0El.textContent = 'WIN!';
+        currentActiveEl.textContent = 'WIN!';
+        scoreActiveEl.textContent = Number(scoreActiveEl.textContent) + 1;
+
+        if (scoreActiveEl.textContent >= 10) {
+            playerActiveEl.classList.add('player--winner');
+        } else {
+            switchPlayer();
+        }
     } else {
-        current0El.textContent = 'LOSE...';
+        currentActiveEl.textContent = 'LOSE...';
+        switchPlayer();
     }
 
-    console.log(dices, dicesAll);
     dicesAll = 0;
 });
