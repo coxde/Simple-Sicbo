@@ -3,6 +3,8 @@
 // Selecting elements
 const player0El = document.querySelector('.player--0');
 const player1El = document.querySelector('.player--1');
+const name0El = document.getElementById('name--0');
+const name1El = document.getElementById('name--1');
 const score0El = document.getElementById('score--0');
 const score1El = document.getElementById('score--1');
 const current0El = document.getElementById('current--0');
@@ -31,6 +33,8 @@ let dices,
 
 // Init function
 const init = function () {
+    name0El.textContent = 'Player 1';
+    name1El.textContent = 'Player 2';
     score0El.textContent = 0;
     score1El.textContent = 0;
     current0El.textContent = '...';
@@ -101,6 +105,9 @@ const currentLoser = function () {
 const winner = function () {
     if (scoreActiveEl.textContent >= 10) {
         playerActiveEl.classList.add('player--winner');
+        document.getElementById(
+            `name--${activePlayer}`
+        ).textContent = `Player ${activePlayer + 1} 🎉`;
         btnBig.classList.add('hidden');
         btnSmall.classList.add('hidden');
         for (let i = 0; i < dices.length; i++) {
