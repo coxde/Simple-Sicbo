@@ -90,17 +90,17 @@
         box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0);
     }
 
-    .dice--1 {
+    .dice--0 {
         left: 38%;
         top: 50%;
     }
 
-    .dice--2 {
+    .dice--1 {
         left: 50%;
         top: 50%;
     }
 
-    .dice--3 {
+    .dice--2 {
         left: 62%;
         top: 50%;
     }
@@ -113,17 +113,17 @@
         margin: 1.5rem;
     }
 
-    .dice--1 {
+    .dice--0 {
         left: 35%;
         top: 50%;
     }
 
-    .dice--2 {
+    .dice--1 {
         left: 50%;
         top: 50%;
     }
 
-    .dice--3 {
+    .dice--2 {
         left: 65%;
         top: 50%;
     }
@@ -131,17 +131,17 @@
 
 /* 425px */
 @media (max-width: 26.56rem) {
-    .dice--1 {
+    .dice--0 {
         left: 10%;
         top: 40%;
     }
 
-    .dice--2 {
+    .dice--1 {
         left: 10%;
         top: 50%;
     }
 
-    .dice--3 {
+    .dice--2 {
         left: 10%;
         top: 60%;
     }

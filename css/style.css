@@ -166,17 +166,17 @@ main {
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0);
 }
 
-.dice--1 {
+.dice--0 {
     left: 50%;
     top: 13.5rem;
 }
 
-.dice--2 {
+.dice--1 {
     left: 44%;
     top: 23.5rem;
 }
 
-.dice--3 {
+.dice--2 {
     left: 56%;
     top: 23.5rem;
 }
