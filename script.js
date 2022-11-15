@@ -46,3 +46,25 @@ btnBig.addEventListener('click', function () {
     console.log(dices, dicesAll);
     dicesAll = 0;
 });
+
+// Small button (<= 10)
+btnSmall.addEventListener('click', function () {
+    for (let i = 0; i < dices.length; i++) {
+        dices[i] = Math.trunc(Math.random() * 6) + 1;
+        dicesAll += dices[i];
+    }
+
+    dice0El.src = `/img/dice-${dices[0]}.png`;
+    dice1El.src = `/img/dice-${dices[1]}.png`;
+    dice2El.src = `/img/dice-${dices[2]}.png`;
+
+    if (dicesAll <= 10) {
+        score0El.textContent = Number(score0El.textContent) + 1;
+        current0El.textContent = 'WIN!';
+    } else {
+        current0El.textContent = 'LOSE...';
+    }
+
+    console.log(dices, dicesAll);
+    dicesAll = 0;
+});
