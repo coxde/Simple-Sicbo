@@ -22,3 +22,27 @@ score0El.textContent = 0;
 score1El.textContent = 0;
 current0El.textContent = '...';
 current1El.textContent = '...';
+let dices = [0, 0, 0];
+let dicesAll = 0;
+
+// Big button (>= 11)
+btnBig.addEventListener('click', function () {
+    for (let i = 0; i < dices.length; i++) {
+        dices[i] = Math.trunc(Math.random() * 6) + 1;
+        dicesAll += dices[i];
+    }
+
+    dice0El.src = `/img/dice-${dices[0]}.png`;
+    dice1El.src = `/img/dice-${dices[1]}.png`;
+    dice2El.src = `/img/dice-${dices[2]}.png`;
+
+    if (dicesAll >= 11) {
+        score0El.textContent = Number(score0El.textContent) + 1;
+        current0El.textContent = 'WIN!';
+    } else {
+        current0El.textContent = 'LOSE...';
+    }
+
+    console.log(dices, dicesAll);
+    dicesAll = 0;
+});
