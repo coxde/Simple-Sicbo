@@ -1,0 +1,152 @@
+/* 1024px */
+@media (max-width: 64rem) {
+    html {
+        font-size: 56.25%;
+    }
+
+    main {
+        margin: 2rem 4rem;
+    }
+}
+
+/* 768px */
+@media (max-width: 48rem) {
+    main {
+        flex-direction: column;
+        width: 80rem;
+        height: 80rem;
+    }
+
+    .player {
+        padding: 2rem;
+    }
+
+    .player--0 {
+        padding-bottom: 6rem;
+    }
+
+    .player--1 {
+        padding-top: 6rem;
+    }
+
+    .player--0 .name {
+        order: 1;
+        margin-top: 1rem;
+        margin-bottom: 0;
+    }
+
+    .player--0 .score {
+        order: 0;
+        margin-top: auto;
+        margin-bottom: 0;
+    }
+
+    .player--0 .guess {
+        order: -1;
+    }
+
+    .guess {
+        width: 45%;
+    }
+
+    .btn {
+        position: absolute;
+        left: auto;
+        right: 3%;
+        transform: translateY(-50%);
+
+        padding: 0.8rem 1.6rem;
+    }
+
+    .btn--new {
+        display: none;
+        top: 6%;
+    }
+
+    .media {
+        display: block;
+    }
+
+    .btn--big {
+        top: 40%;
+    }
+
+    .btn--small {
+        top: 50%;
+    }
+
+    .btn--rule {
+        top: 60%;
+    }
+
+    .btn:active {
+        transform: translateY(-44%);
+    }
+
+    .dice {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        height: 6rem;
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0);
+    }
+
+    .dice--1 {
+        left: 38%;
+        top: 50%;
+    }
+
+    .dice--2 {
+        left: 50%;
+        top: 50%;
+    }
+
+    .dice--3 {
+        left: 62%;
+        top: 50%;
+    }
+}
+
+/* 640px */
+@media (max-width: 40rem) {
+    main {
+        width: 100%;
+        margin: 1.5rem;
+    }
+
+    .dice--1 {
+        left: 35%;
+        top: 50%;
+    }
+
+    .dice--2 {
+        left: 50%;
+        top: 50%;
+    }
+
+    .dice--3 {
+        left: 65%;
+        top: 50%;
+    }
+}
+
+/* 425px */
+@media (max-width: 26.56rem) {
+    .dice--1 {
+        left: 10%;
+        top: 40%;
+    }
+
+    .dice--2 {
+        left: 10%;
+        top: 50%;
+    }
+
+    .dice--3 {
+        left: 10%;
+        top: 60%;
+    }
+
+    .btn {
+        padding: 0.6rem 1.2rem;
+    }
+}
