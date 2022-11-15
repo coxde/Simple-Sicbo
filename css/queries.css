@@ -104,6 +104,10 @@
         left: 62%;
         top: 50%;
     }
+
+    .rule-modal {
+        width: 65%;
+    }
 }
 
 /* 640px */
@@ -148,5 +152,10 @@
 
     .btn {
         padding: 0.6rem 1.2rem;
+    }
+
+    .rule-modal {
+        width: 75%;
+        padding: 2.8rem 3.6rem;
     }
 }

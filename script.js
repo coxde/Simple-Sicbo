@@ -16,7 +16,11 @@ const dice2El = document.querySelector('.dice--2');
 const btnNew = document.querySelector('.btn--new');
 const btnBig = document.querySelector('.btn--big');
 const btnSmall = document.querySelector('.btn--small');
-const btnRule = document.querySelector('.btn--rule');
+
+const modal = document.querySelector('.rule-modal');
+const overlay = document.querySelector('.rule-overlay');
+const btnOpenRule = document.querySelector('.btn--rule');
+const btnCloseRule = document.querySelector('.close-modal');
 
 let dices,
     dicesAll,
@@ -107,6 +111,19 @@ const winner = function () {
     }
 };
 
+// Open and close modal function
+const openModal = function () {
+    modal.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+};
+
+const closeModal = function () {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+};
+
+//////////////////////////////////////////////////////
+
 // Big button (>= 11)
 btnBig.addEventListener('click', function () {
     dicesGenerator();
@@ -141,3 +158,14 @@ btnSmall.addEventListener('click', function () {
 
 // New button
 btnNew.addEventListener('click', init);
+
+// Rule button
+btnOpenRule.addEventListener('click', openModal);
+
+btnCloseRule.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal);
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        closeModal();
+    }
+});
