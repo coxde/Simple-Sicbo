@@ -52,6 +52,13 @@ const init = function () {
 
 init();
 
+// Reset current score function
+const resetCurrent = function () {
+    document.getElementById(
+        `current--${Number(!Boolean(activePlayer))}`
+    ).textContent = '...';
+};
+
 // Switching function
 const switchPlayer = function () {
     activePlayer = activePlayer === 0 ? 1 : 0;
@@ -62,8 +69,8 @@ const switchPlayer = function () {
     player1El.classList.toggle('player--active');
 };
 
-// Big button (>= 11)
-btnBig.addEventListener('click', function () {
+// Dices generator function
+const dicesGenerator = function () {
     for (let i = 0; i < dices.length; i++) {
         dices[i] = Math.trunc(Math.random() * 6) + 1;
         dicesAll += dices[i];
@@ -73,27 +80,43 @@ btnBig.addEventListener('click', function () {
     dice0El.src = `/img/dice-${dices[0]}.png`;
     dice1El.src = `/img/dice-${dices[1]}.png`;
     dice2El.src = `/img/dice-${dices[2]}.png`;
+};
 
-    document.getElementById(
-        `current--${Number(!Boolean(activePlayer))}`
-    ).textContent = '...';
+// Current winner function
+const currentWinner = function () {
+    currentActiveEl.textContent = `${dicesAll}: WIN!`;
+    scoreActiveEl.textContent = Number(scoreActiveEl.textContent) + 1;
+};
 
-    if (dicesAll >= 11) {
-        currentActiveEl.textContent = `${dicesAll}: WIN!`;
-        scoreActiveEl.textContent = Number(scoreActiveEl.textContent) + 1;
+// Current loser function
+const currentLoser = function () {
+    currentActiveEl.textContent = `${dicesAll}: LOSE...`;
+};
 
-        if (scoreActiveEl.textContent >= 10) {
-            playerActiveEl.classList.add('player--winner');
-            btnBig.classList.add('hidden');
-            btnSmall.classList.add('hidden');
-            for (let i = 0; i < dices.length; i++) {
-                diceAllEl[i].classList.add('hidden');
-            }
-        } else {
-            switchPlayer();
+// Final winner function
+const winner = function () {
+    if (scoreActiveEl.textContent >= 10) {
+        playerActiveEl.classList.add('player--winner');
+        btnBig.classList.add('hidden');
+        btnSmall.classList.add('hidden');
+        for (let i = 0; i < dices.length; i++) {
+            diceAllEl[i].classList.add('hidden');
         }
     } else {
-        currentActiveEl.textContent = `${dicesAll}: LOSE...`;
+        switchPlayer();
+    }
+};
+
+// Big button (>= 11)
+btnBig.addEventListener('click', function () {
+    dicesGenerator();
+    resetCurrent();
+
+    if (dicesAll >= 11) {
+        currentWinner();
+        winner();
+    } else {
+        currentLoser();
         switchPlayer();
     }
 
@@ -102,36 +125,14 @@ btnBig.addEventListener('click', function () {
 
 // Small button (<= 10)
 btnSmall.addEventListener('click', function () {
-    for (let i = 0; i < dices.length; i++) {
-        dices[i] = Math.trunc(Math.random() * 6) + 1;
-        dicesAll += dices[i];
-        diceAllEl[i].classList.remove('hidden');
-    }
-
-    dice0El.src = `/img/dice-${dices[0]}.png`;
-    dice1El.src = `/img/dice-${dices[1]}.png`;
-    dice2El.src = `/img/dice-${dices[2]}.png`;
-
-    document.getElementById(
-        `current--${Number(!Boolean(activePlayer))}`
-    ).textContent = '...';
+    dicesGenerator();
+    resetCurrent();
 
     if (dicesAll <= 10) {
-        currentActiveEl.textContent = `${dicesAll}: WIN!`;
-        scoreActiveEl.textContent = Number(scoreActiveEl.textContent) + 1;
-
-        if (scoreActiveEl.textContent >= 10) {
-            playerActiveEl.classList.add('player--winner');
-            btnBig.classList.add('hidden');
-            btnSmall.classList.add('hidden');
-            for (let i = 0; i < dices.length; i++) {
-                diceAllEl[i].classList.add('hidden');
-            }
-        } else {
-            switchPlayer();
-        }
+        currentWinner();
+        winner();
     } else {
-        currentActiveEl.textContent = `${dicesAll}: LOSE...`;
+        currentLoser();
         switchPlayer();
     }
 
