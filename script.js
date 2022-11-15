@@ -39,6 +39,8 @@ const init = function () {
     scoreActiveEl = score0El;
     currentActiveEl = current0El;
 
+    btnBig.classList.remove('hidden');
+    btnSmall.classList.remove('hidden');
     player0El.classList.remove('player--winner');
     player1El.classList.remove('player--winner');
     player0El.classList.add('player--active');
@@ -82,6 +84,11 @@ btnBig.addEventListener('click', function () {
 
         if (scoreActiveEl.textContent >= 10) {
             playerActiveEl.classList.add('player--winner');
+            btnBig.classList.add('hidden');
+            btnSmall.classList.add('hidden');
+            for (let i = 0; i < dices.length; i++) {
+                diceAllEl[i].classList.add('hidden');
+            }
         } else {
             switchPlayer();
         }
@@ -115,6 +122,11 @@ btnSmall.addEventListener('click', function () {
 
         if (scoreActiveEl.textContent >= 10) {
             playerActiveEl.classList.add('player--winner');
+            btnBig.classList.add('hidden');
+            btnSmall.classList.add('hidden');
+            for (let i = 0; i < dices.length; i++) {
+                diceAllEl[i].classList.add('hidden');
+            }
         } else {
             switchPlayer();
         }
