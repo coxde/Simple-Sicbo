@@ -40,7 +40,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: all 0.75s;
+    transition: all 1.25s;
 }
 
 /* ELEMENTS */
@@ -83,7 +83,7 @@ main {
     width: 65%;
     padding: 2rem;
     text-align: center;
-    transition: all 0.75s;
+    transition: all 1.25s;
 }
 
 .current-label {

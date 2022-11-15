@@ -51,6 +51,10 @@ btnBig.addEventListener('click', function () {
     dice1El.src = `/img/dice-${dices[1]}.png`;
     dice2El.src = `/img/dice-${dices[2]}.png`;
 
+    document.getElementById(
+        `current--${Number(!Boolean(activePlayer))}`
+    ).textContent = '...';
+
     if (dicesAll >= 11) {
         currentActiveEl.textContent = `${dicesAll}: WIN!`;
         scoreActiveEl.textContent = Number(scoreActiveEl.textContent) + 1;
@@ -79,6 +83,10 @@ btnSmall.addEventListener('click', function () {
     dice0El.src = `/img/dice-${dices[0]}.png`;
     dice1El.src = `/img/dice-${dices[1]}.png`;
     dice2El.src = `/img/dice-${dices[2]}.png`;
+
+    document.getElementById(
+        `current--${Number(!Boolean(activePlayer))}`
+    ).textContent = '...';
 
     if (dicesAll <= 10) {
         currentActiveEl.textContent = `${dicesAll}: WIN!`;
