@@ -37,8 +37,6 @@ const switchPlayer = function () {
     currentActiveEl = document.getElementById(`current--${activePlayer}`);
     player0El.classList.toggle('player--active');
     player1El.classList.toggle('player--active');
-
-    return scoreActiveEl, currentActiveEl;
 };
 
 // Big button (>= 11)
