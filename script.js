@@ -190,6 +190,8 @@ document.addEventListener('keydown', function (e) {
 // AI button
 btnAI.addEventListener('click', async function () {
     isAIRunning = true;
+    btnBig.classList.add('hidden');
+    btnSmall.classList.add('hidden');
     btnAI.classList.add('hidden');
     while (scoreActiveEl.textContent < 10 && isAIRunning) {
         if (Math.random() >= 0.5) {
