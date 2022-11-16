@@ -137,6 +137,12 @@ main {
     top: 5%;
 }
 
+.btn--ai {
+    top: 5%;
+    left: auto;
+    right: -2%;
+}
+
 .media {
     display: none;
 }

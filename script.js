@@ -16,6 +16,7 @@ const dice1El = document.querySelector('.dice--1');
 const dice2El = document.querySelector('.dice--2');
 
 const btnNew = document.querySelectorAll('.btn--new');
+const btnAI = document.querySelector('.btn--ai');
 const btnBig = document.querySelector('.btn--big');
 const btnSmall = document.querySelector('.btn--small');
 
@@ -27,6 +28,7 @@ const btnCloseRule = document.querySelector('.close-modal');
 let dices,
     dicesAll,
     activePlayer,
+    isAIRunning,
     playerActiveEl,
     scoreActiveEl,
     currentActiveEl;
@@ -43,12 +45,14 @@ const init = function () {
     dices = [0, 0, 0];
     dicesAll = 0;
     activePlayer = 0;
+    isAIRunning = false;
     playerActiveEl = document.querySelector('.player--0');
     scoreActiveEl = score0El;
     currentActiveEl = current0El;
 
     btnBig.classList.remove('hidden');
     btnSmall.classList.remove('hidden');
+    btnAI.classList.remove('hidden');
     player0El.classList.remove('player--winner');
     player1El.classList.remove('player--winner');
     player0El.classList.add('player--active');
@@ -110,6 +114,7 @@ const winner = function () {
         ).textContent = `Player ${activePlayer + 1} 🎉`;
         btnBig.classList.add('hidden');
         btnSmall.classList.add('hidden');
+        btnAI.classList.add('hidden');
         for (let i = 0; i < dices.length; i++) {
             diceAllEl[i].classList.add('hidden');
         }
@@ -128,6 +133,9 @@ const closeModal = function () {
     modal.classList.add('hidden');
     overlay.classList.add('hidden');
 };
+
+// Sleep function
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 //////////////////////////////////////////////////////
 
@@ -176,5 +184,20 @@ overlay.addEventListener('click', closeModal);
 document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
         closeModal();
+    }
+});
+
+// AI button
+btnAI.addEventListener('click', async function () {
+    isAIRunning = true;
+    btnAI.classList.add('hidden');
+    while (scoreActiveEl.textContent < 10 && isAIRunning) {
+        if (Math.random() >= 0.5) {
+            btnBig.click();
+            await sleep(500);
+        } else {
+            btnSmall.click();
+            await sleep(500);
+        }
     }
 });

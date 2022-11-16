@@ -63,6 +63,10 @@
         top: 6%;
     }
 
+    .btn--ai {
+        top: 16%;
+    }
+
     .media {
         display: flex;
     }
