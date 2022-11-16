@@ -6,6 +6,7 @@
 
 html {
     font-size: 62.5%;
+    overflow: hidden;
 }
 
 body {
@@ -17,6 +18,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    position: relative;
 }
 
 /* LAYOUT */
@@ -231,8 +234,8 @@ main {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 150%;
+    height: 150%;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(3px);
     z-index: 5;
