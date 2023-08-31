@@ -1,6 +1,6 @@
 # Simple-Sicbo
 
-A simplified Sic bo game written by JavaScript
+A simplified Sic bo game written with JavaScript
 
 Game logic:
 
